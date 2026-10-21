@@ -1,0 +1,51 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "D",
+    "W"
+  ],
+  "key": {
+    "D": "minecraft:dispenser",
+    "W": "minecraft:water_bucket"
+  },
+  "result": {
+    "id": "minecraft:item_frame",
+    "count": 1,
+    "components": {
+      "minecraft:item_name": {
+        "text": "Sprinkler",
+        "color": "aqua"
+      },
+      "minecraft:lore": [
+        {
+          "text": "An die Decke setzen.",
+          "color": "gray",
+          "italic": false
+        },
+        {
+          "text": "Löscht Feuer, sobald ein Rauchmelder Alarm gibt.",
+          "color": "gray",
+          "italic": false
+        },
+        {
+          "text": "Linksklick: Abbauen",
+          "color": "dark_gray",
+          "italic": false
+        }
+      ],
+      "minecraft:item_model": "minecraft:lightning_rod",
+      "minecraft:custom_data": {
+        "brandschutz": "sprinkler"
+      },
+      "minecraft:entity_data": {
+        "id": "minecraft:item_frame",
+        "Invisible": true,
+        "Tags": [
+          "brandschutz.neu",
+          "brandschutz.neu_sprinkler"
+        ]
+      }
+    }
+  }
+}

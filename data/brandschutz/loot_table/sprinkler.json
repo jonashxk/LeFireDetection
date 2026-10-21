@@ -1,0 +1,51 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:item_frame",
+          "modifier": {
+            "type": "minecraft:set_components",
+            "components": {
+              "minecraft:item_name": {
+                "text": "Sprinkler",
+                "color": "aqua"
+              },
+              "minecraft:lore": [
+                {
+                  "text": "An die Decke setzen.",
+                  "color": "gray",
+                  "italic": false
+                },
+                {
+                  "text": "Löscht Feuer, sobald ein Rauchmelder Alarm gibt.",
+                  "color": "gray",
+                  "italic": false
+                },
+                {
+                  "text": "Linksklick: Abbauen",
+                  "color": "dark_gray",
+                  "italic": false
+                }
+              ],
+              "minecraft:item_model": "minecraft:lightning_rod",
+              "minecraft:custom_data": {
+                "brandschutz": "sprinkler"
+              },
+              "minecraft:entity_data": {
+                "id": "minecraft:item_frame",
+                "Invisible": true,
+                "Tags": [
+                  "brandschutz.neu",
+                  "brandschutz.neu_sprinkler"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

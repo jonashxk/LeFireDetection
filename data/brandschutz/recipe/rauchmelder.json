@@ -1,0 +1,52 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    " Q ",
+    "QOQ",
+    " Q "
+  ],
+  "key": {
+    "Q": "minecraft:quartz",
+    "O": "minecraft:observer"
+  },
+  "result": {
+    "id": "minecraft:item_frame",
+    "count": 1,
+    "components": {
+      "minecraft:item_name": {
+        "text": "Rauchmelder",
+        "color": "white"
+      },
+      "minecraft:lore": [
+        {
+          "text": "An die Decke setzen.",
+          "color": "gray",
+          "italic": false
+        },
+        {
+          "text": "Erkennt Feuer im Umkreis und löst Sprinkler aus.",
+          "color": "gray",
+          "italic": false
+        },
+        {
+          "text": "Rechtsklick: Test  |  Linksklick: Abbauen",
+          "color": "dark_gray",
+          "italic": false
+        }
+      ],
+      "minecraft:item_model": "minecraft:smooth_quartz_slab",
+      "minecraft:custom_data": {
+        "brandschutz": "rauchmelder"
+      },
+      "minecraft:entity_data": {
+        "id": "minecraft:item_frame",
+        "Invisible": true,
+        "Tags": [
+          "brandschutz.neu",
+          "brandschutz.neu_melder"
+        ]
+      }
+    }
+  }
+}

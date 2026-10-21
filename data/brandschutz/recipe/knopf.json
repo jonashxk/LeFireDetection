@@ -1,0 +1,51 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "R",
+    "B"
+  ],
+  "key": {
+    "R": "minecraft:redstone",
+    "B": "minecraft:stone_button"
+  },
+  "result": {
+    "id": "minecraft:item_frame",
+    "count": 1,
+    "components": {
+      "minecraft:item_name": {
+        "text": "Feueralarm-Knopf",
+        "color": "red"
+      },
+      "minecraft:lore": [
+        {
+          "text": "An die Wand setzen.",
+          "color": "gray",
+          "italic": false
+        },
+        {
+          "text": "Löst alle Rauchmelder im Umkreis aus.",
+          "color": "gray",
+          "italic": false
+        },
+        {
+          "text": "Rechtsklick: Alarm  |  Linksklick: Abbauen",
+          "color": "dark_gray",
+          "italic": false
+        }
+      ],
+      "minecraft:item_model": "minecraft:red_concrete",
+      "minecraft:custom_data": {
+        "brandschutz": "knopf"
+      },
+      "minecraft:entity_data": {
+        "id": "minecraft:item_frame",
+        "Invisible": true,
+        "Tags": [
+          "brandschutz.neu",
+          "brandschutz.neu_knopf"
+        ]
+      }
+    }
+  }
+}
