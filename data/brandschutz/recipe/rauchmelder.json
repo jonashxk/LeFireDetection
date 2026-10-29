@@ -35,7 +35,7 @@
           "italic": false
         }
       ],
-      "minecraft:item_model": "minecraft:smooth_quartz_slab",
+      "minecraft:item_model": "brandschutz:rauchmelder",
       "minecraft:custom_data": {
         "brandschutz": "rauchmelder"
       },

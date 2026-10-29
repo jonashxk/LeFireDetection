@@ -34,7 +34,7 @@
           "italic": false
         }
       ],
-      "minecraft:item_model": "minecraft:red_concrete",
+      "minecraft:item_model": "brandschutz:feueralarm_knopf",
       "minecraft:custom_data": {
         "brandschutz": "knopf"
       },

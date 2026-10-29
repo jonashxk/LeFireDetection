@@ -7,6 +7,13 @@ Rauchmelder erkennen Feuer und lösen Sprinkler in der Nähe aus. Die Sprinkler 
 2. In der Welt `/reload` ausführen.
 3. Mit `/function brandschutz:geben` bekommst du 1 Rauchmelder und 4 Sprinkler. Alternativ kannst du sie craften (siehe unten).
 
+## Resourcepack (Item-Symbole)
+Die drei Items haben eigene 16×16-Symbole. Sie liegen im **Microduck-Resourcepack** unter `assets/brandschutz/`:
+- `items/` und `models/item/`: `rauchmelder`, `sprinkler`, `feueralarm_knopf`
+- `textures/item/`: die Texturen, erzeugt aus denselben Pixeldaten wie die Symbole auf der Website
+
+Ohne das Resourcepack zeigen die Items ein Fehlersymbol. Die Geräte selbst funktionieren und sehen trotzdem normal aus, weil sie aus normalen Blöcken bestehen.
+
 ## Benutzung
 - Rauchmelder und Sprinkler werden wie ein Rahmen **an die Decke** gesetzt, der Feueralarm-Knopf an die Wand.
 - **Rauchmelder**: prüft alle 10 Sekunden ein **Quadrat** von 31×31 Blöcken (r = 15, also 15 Blöcke in jede Richtung), von der Decke **bis zum Boden**, höchstens 64 Blöcke tief.

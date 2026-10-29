@@ -34,7 +34,7 @@
           "italic": false
         }
       ],
-      "minecraft:item_model": "minecraft:lightning_rod",
+      "minecraft:item_model": "brandschutz:sprinkler",
       "minecraft:custom_data": {
         "brandschutz": "sprinkler"
       },
