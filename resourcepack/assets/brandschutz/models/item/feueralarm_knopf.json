@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "brandschutz:item/feueralarm_knopf"
+  }
+}

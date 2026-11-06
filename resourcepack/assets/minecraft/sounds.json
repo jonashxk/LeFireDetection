@@ -1,0 +1,11 @@
+{
+  "custom.alarm.bma": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "custom/alarm/bma",
+        "stream": true
+      }
+    ]
+  }
+}

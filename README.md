@@ -2,17 +2,24 @@
 
 Rauchmelder erkennen Feuer und lösen Sprinkler in der Nähe aus. Die Sprinkler sprühen Wasserpartikel und löschen das Feuer.
 
-## Installation
-1. Diesen Ordner nach `.minecraft/saves/<Welt>/datapacks/` kopieren.
-2. In der Welt `/reload` ausführen.
-3. Mit `/function brandschutz:geben` bekommst du 1 Rauchmelder und 4 Sprinkler. Alternativ kannst du sie craften (siehe unten).
+## Download
+Die fertigen Packs liegen im Ordner [`dist/`](dist):
 
-## Resourcepack (Item-Symbole)
-Die drei Items haben eigene 16×16-Symbole. Sie liegen im **Microduck-Resourcepack** unter `assets/brandschutz/`:
-- `items/` und `models/item/`: `rauchmelder`, `sprinkler`, `feueralarm_knopf`
-- `textures/item/`: die Texturen, erzeugt aus denselben Pixeldaten wie die Symbole auf der Website
+| Datei | Wohin |
+|---|---|
+| [`Brandschutz-Datapack.zip`](dist/Brandschutz-Datapack.zip) | Ungeöffnet nach `<Welt>/datapacks/` legen, danach `/reload` |
+| [`Brandschutz-Resourcepack.zip`](dist/Brandschutz-Resourcepack.zip) | Item-Symbole und Alarmton. Bei jedem Spieler unter `.minecraft/resourcepacks/` aktivieren, oder auf dem Server über `resource-pack` in der `server.properties` verteilen. |
 
-Ohne das Resourcepack zeigen die Items ein Fehlersymbol. Die Geräte selbst funktionieren und sehen trotzdem normal aus, weil sie aus normalen Blöcken bestehen.
+Danach gibt `/function brandschutz:geben` 1 Rauchmelder, 4 Sprinkler und 1 Feueralarm-Knopf. Alternativ kannst du alles craften (siehe unten).
+
+## Resourcepack
+Das Resourcepack enthält nur, was zum Datapack gehört:
+- **Item-Symbole** unter `assets/brandschutz/`: `rauchmelder`, `sprinkler` und `feueralarm_knopf`. Das sind 16×16-Texturen mit Item-Modell und Item-Definition.
+- **Alarmton** `minecraft:custom.alarm.bma` unter `assets/minecraft/sounds/custom/alarm/bma.ogg` (mono, 64 Sekunden).
+  Der Name ist derselbe wie in bestehenden Server-Packs. Das Datapack funktioniert also mit beiden, und beide Packs lassen sich gleichzeitig laden.
+
+Ohne Resourcepack funktionieren die Geräte trotzdem und sehen normal aus, weil sie aus normalen Blöcken bestehen.
+Nur die Items zeigen dann ein Fehlersymbol, und statt des Alarmtons gibt es nur das Piepen.
 
 ## Benutzung
 - Rauchmelder und Sprinkler werden wie ein Rahmen **an die Decke** gesetzt, der Feueralarm-Knopf an die Wand.
@@ -48,6 +55,7 @@ Melder und Sprinkler suchen den Boden mit einem Strahl senkrecht nach unten. Er 
 | `/function brandschutz:geben` | 1 Rauchmelder, 4 Sprinkler, 1 Feueralarm-Knopf |
 | `/function brandschutz:probealarm` | löst alle Rauchmelder im Umkreis von 100 Blöcken für 10 Sekunden aus, inklusive Sprinkler |
 | `/function brandschutz:alarm_aus` | beendet alle Alarme, Sprinkler und den Alarmton im Umkreis von 100 Blöcken. Brennt es wirklich noch, schlägt der Melder bei der nächsten Prüfung erneut Alarm. |
+| `/function brandschutz:deinstallieren` | entfernt alle Geräte und Daten |
 
 ## Alarmton
 - Der Ton kommt aus dem Resourcepack: `minecraft:custom.alarm.bma`, also die Datei `assets/minecraft/sounds/custom/alarm/bma.ogg`.
@@ -56,7 +64,6 @@ Melder und Sprinkler suchen den Boden mit einem Strahl senkrecht nach unten. Er 
 - Der Ton läuft immer bis zum Ende, also etwa 64 Sekunden. Nur `alarm_aus` bricht ihn ab.
 - Man hört ihn 48 Blöcke weit. Spieler, die erst später in die Nähe kommen, hören ihn nicht mehr.
 - Spieler ohne das Resourcepack hören keinen Ton, das Piepen bleibt aber.
-| `/function brandschutz:deinstallieren` | entfernt alle Geräte und Daten |
 
 ## Rezepte
 | Gerät | Rezept |
@@ -103,4 +110,16 @@ Dort kann über einem Melder Feuer verschwinden. Ein Melder, der selbst in diese
 Wenn genau dort Feuer gebaut ist, wird es entfernt. Alles andere bleibt unverändert.
 
 ## Deinstallieren
-`/function brandschutz:deinstallieren`, danach `/datapack disable "file/Brandschutz-Datapack"`.
+`/function brandschutz:deinstallieren`, danach `/datapack disable "file/Brandschutz-Datapack.zip"`.
+
+## Projektaufbau und Bauen
+```
+data/            Datapack: Funktionen, Rezepte, Loot-Tables, Block-Tag
+pack.mcmeta      Datapack-Metadaten (Format 121.0 = Minecraft 26.3)
+resourcepack/    Resourcepack: Item-Symbole + Alarmton
+tools/build.py   baut beide ZIPs nach dist/
+dist/            fertige ZIPs zum Herunterladen
+```
+Nach einer Änderung `python tools/build.py` ausführen. Das Skript prüft alle JSON-Dateien,
+baut beide ZIPs neu und gibt die SHA-1 des Resourcepacks aus.
+Die brauchst du für `resource-pack-sha1` in der `server.properties`.
